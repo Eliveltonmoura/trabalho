@@ -309,7 +309,7 @@ public class Main {
         sistema.registrarVenda(venda);
 
         // Exemplo: Registrar uma compra
-        Compra compra = new Compra(/* dados da compra */);
+        Compra compra = new Compra(33,25,1,3.000,"25/03/2023");
         sistema.registrarCompra(compra);
 
         // Exemplo: Exibir relatório de estoque
