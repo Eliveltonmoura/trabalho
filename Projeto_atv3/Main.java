@@ -94,21 +94,59 @@ class Produto {
 
 }
 
-/*
- * class Transacao {
- * private int id;
- * private TipoTransacao tipo;
- * private int idProduto;
- * private int quantidade;
- * private Date data;
- * 
- * // Construtor, getters e setters
- * }
- * 
- * enum TipoTransacao {
- * ENTRADA, SAIDA
- * }
- */
+class Transacao {
+    private int id;
+    private TipoTransacao tipo;
+    private int idProduto;
+    private int quantidade;
+    private String data;
+
+    // Construtor, getters e setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public TipoTransacao getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoTransacao tipo) {
+        this.tipo = tipo;
+    }
+
+    public int getIdProduto() {
+        return idProduto;
+    }
+
+    public void setIdProduto(int idProduto) {
+        this.idProduto = idProduto;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+}
+
+enum TipoTransacao {
+    ENTRADA, SAIDA
+}
 
 class Venda {
     private int id;
@@ -227,10 +265,9 @@ class Compra {
 
 class SistemaEstoque {
     private List<Produto> produtos;
-    // private List<Transacao> transacoes;
+    private List<Transacao> transacoes;
     private List<Venda> vendas;
     private List<Compra> compras;
-
 
     public SistemaEstoque() {
         this.produtos = new ArrayList<>();
@@ -250,7 +287,7 @@ class SistemaEstoque {
     }
 
     public void registrarVenda(Venda venda) {
-       Produto produto = buscarProdutoPorId(venda.getIdProduto());
+        Produto produto = buscarProdutoPorId(venda.getIdProduto());
 
         if (produto != null && produto.getQuantidadeEstoque() >= venda.getQuantidade()) {
             // Atualizar o estoque
@@ -274,7 +311,7 @@ class SistemaEstoque {
         }
         return null;
     }
-    
+
     public void registrarCompra(Compra compra) {
         Produto produto = buscarProdutoPorId(compra.getIdProduto());
 
@@ -290,7 +327,6 @@ class SistemaEstoque {
             System.out.println("Produto não encontrado no estoque.");
         }
     }
-
 
     public void exibirRelatorioEstoque() {
         System.out.println("=== Relatório de Estoque ===");
@@ -312,7 +348,7 @@ public class Main {
         SistemaEstoque sistema = new SistemaEstoque();
 
         // Exemplo: Adicionar um produto
-        Produto produto = new Produto(25, "fugão", "cosinha", "consul", "Magalu", 2.000, 4, 3);
+        Produto produto = new Produto(25, "fugão", "cozinha", "consul", "Magalu", 2.000, 4, 3);
         sistema.adicionarProduto(produto);
 
         // Exemplo: Registrar uma venda
