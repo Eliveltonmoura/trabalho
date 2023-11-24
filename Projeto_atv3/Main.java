@@ -15,6 +15,73 @@ class Produto {
     private int quantidadeEstoque;
 
     // Construtor, getters e setters
+   
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    public String getNome() {
+        return nome;
+    }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public String getCategoria() {
+        return categoria;
+    }
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+    public String getFornecedor() {
+        return fornecedor;
+    }
+
+    public void setFornecedor(String fornecedor) {
+        this.fornecedor = fornecedor;
+    }
+    public double getPrecoCompra() {
+        return precoCompra;
+    }
+    public void setPrecoCompra(double precoCompra) {
+        this.precoCompra = precoCompra;
+    }
+
+    public double getPrecoVenda() {
+        return precoVenda;
+    }
+    public void setPrecoVenda(double precoVenda) {
+        this.precoVenda = precoVenda;
+    }
+    public int getQuantidadeEstoque() {
+        return quantidadeEstoque;
+    }
+
+    public void setQuantidadeEstoque(int quantidadeEstoque) {
+        this.quantidadeEstoque = quantidadeEstoque;
+    }
+    public Produto(int id, String nome, String categoria, String marca, String fornecedor,
+                   double precoCompra, double precoVenda, int quantidadeEstoque) {
+        this.id = id;
+        this.nome = nome;
+        this.categoria = categoria;
+        this.marca = marca;
+        this.fornecedor = fornecedor;
+        this.precoCompra = precoCompra;
+        this.precoVenda = precoVenda;
+        this.quantidadeEstoque = quantidadeEstoque;
+    }
+    
+
+
 }
 
 class Transacao {
@@ -79,6 +146,14 @@ class Venda {
         this.data = data;
     }
 
+     public Venda(int id, int idProduto, int quantidade, double valorTotal, Date data) {
+        this.id = id;
+        this.idProduto = idProduto;
+        this.quantidade = quantidade;
+        this.valorTotal = valorTotal;
+        this.data = data;
+    }
+
 }
 
 class Compra {
@@ -126,6 +201,14 @@ class Compra {
     }
 
     public void setData(Date data) {
+        this.data = data;
+    }
+
+     public Compra(int id, int idProduto, int quantidade, double valorTotal, Date data) {
+        this.id = id;
+        this.idProduto = idProduto;
+        this.quantidade = quantidade;
+        this.valorTotal = valorTotal;
         this.data = data;
     }
 
