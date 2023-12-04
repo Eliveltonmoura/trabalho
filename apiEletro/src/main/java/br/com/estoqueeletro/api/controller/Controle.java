@@ -3,6 +3,7 @@ package br.com.estoqueeletro.api.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,36 +13,40 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.estoqueeletro.api.model.Aparelho;
-import br.com.estoqueeletro.api.repository.Repositorio;
+import br.com.estoqueeletro.api.repository.RepositorioAparelho;
+import br.com.estoqueeletro.api.service.Servico;
 
 @RestController
 public class Controle {
 
     @Autowired
-    private Repositorio acao;
+    private RepositorioAparelho acaoAparelho;
+    @Autowired
+    private Servico servico;
 
-    @PostMapping("/estoque")
-    public Aparelho cadastrar(@RequestBody Aparelho obj){
-        return acao.save(obj);
+    //Aparelho
+    @PostMapping("/aparelho")
+    public ResponseEntity<?> cadastrarAparelho(@RequestBody Aparelho obj){
+        return servico.cadastrar(obj);
     }
-
-    @GetMapping("/estoque")
-    public List<Aparelho> selecionar(){
-        return acao.findAll();
+    @GetMapping("/aparelho")
+    public ResponseEntity<?> mostrarTodosAparelhos(){
+        return servico.selecionar();
     }
-
-    @GetMapping("/estoque/{id}")
-    public Aparelho selecionarPeloCodigo(@PathVariable int id) {
-        return acao.findById(id);
+    @GetMapping("/aparelho/{id}")
+    public ResponseEntity<?> selecionarAparelhoPeloId(@PathVariable int id) {
+        return servico.selecionarPeloId(id);
     }
-
-    @PutMapping("/estoque")
-    public Aparelho editar(@RequestBody Aparelho obj){
-        return acao.save(obj);
+    @GetMapping("/aparelho/estoque/{idEstoque}")
+    public List<Aparelho> selecionarAparelhoPeloIdEstoque(@PathVariable int idEstoque) {
+        return acaoAparelho.findByIdEstoque(idEstoque);
     }
-
-    @DeleteMapping("/estoque/{id}")
-    public void remover(@PathVariable int id){
-        acao.deleteById(id);
+    @PutMapping("/aparelho")
+    public ResponseEntity<?> editarAparelho(@RequestBody Aparelho obj){
+        return servico.editar(obj);
+    }
+    @DeleteMapping("/aparelho/{id}")
+    public ResponseEntity<?> removerAparelho(@PathVariable int id){
+        return servico.remover(id);
     }
 }

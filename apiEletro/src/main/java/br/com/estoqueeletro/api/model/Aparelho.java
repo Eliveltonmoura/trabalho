@@ -17,53 +17,51 @@ public class Aparelho{
     private String marca;
     private double preco;
     private int quantidade;
-    private int tamanho;
     private int idEstoque;
-
     
     public int getId() {
         return id;
     }
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getNome() {
         return nome;
-    }
-    public String getTipo() {
-        return tipo;
-    }
-    public String getMarca() {
-        return marca;
-    }
-    public double getPreco() {
-        return preco;
-    }
-    public int getQuantidade() {
-        return quantidade;
-    }
-    public int getTamanho() {
-        return tamanho;
-    }
-    public int getIdEstoque() {
-        return idEstoque;
     }
     public void setNome(String nome) {
         this.nome = nome;
     }
+    public String getTipo() {
+        return tipo;
+    }
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+    public String getMarca() {
+        return marca;
     }
     public void setMarca(String marca) {
         this.marca = marca;
     }
+    public double getPreco() {
+        return preco;
+    }
     public void setPreco(double preco) {
         this.preco = preco;
+    }
+    public int getQuantidade() {
+        return quantidade;
     }
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
-    public void setTamanho(int tamanho) {
-        this.tamanho = tamanho;
+    public int getIdEstoque() {
+        return idEstoque;
     }
     public void setIdEstoque(int idEstoque) {
         this.idEstoque = idEstoque;
     }
+
+    
+    
 }
