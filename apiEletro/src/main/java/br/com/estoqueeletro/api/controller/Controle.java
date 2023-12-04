@@ -37,10 +37,6 @@ public class Controle {
     public ResponseEntity<?> selecionarAparelhoPeloId(@PathVariable int id) {
         return servico.selecionarPeloId(id);
     }
-    @GetMapping("/aparelho/estoque/{idEstoque}")
-    public List<Aparelho> selecionarAparelhoPeloIdEstoque(@PathVariable int idEstoque) {
-        return acaoAparelho.findByIdEstoque(idEstoque);
-    }
     @PutMapping("/aparelho")
     public ResponseEntity<?> editarAparelho(@RequestBody Aparelho obj){
         return servico.editar(obj);
